@@ -16,10 +16,10 @@ Ubuntu 16.04 | ami-42b86d54 | ami-7fa85269
 Ubuntu 16.10 | ami-0c86521a | ami-4a84505c
 
 ## Pre-requisites
-
+This first command works in bash but not ZSH
 ```
 # The name of the AWS KeyPair to use for deployment
-export $AWS_KEYPAIR_NAME='your_aws_keypair_name'
+export AWS_KEYPAIR_NAME='your_aws_keypair_name'
 ```
 
 *NOTE*: Ensure your `~/.aws/config` region is set to `us-east-1` pending region
