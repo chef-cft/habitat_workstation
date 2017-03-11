@@ -19,7 +19,7 @@ Ubuntu 16.10 | ami-0c86521a | ami-4a84505c
 
 ```
 # The name of the AWS KeyPair to use for deployment
-export $AWS_KEYPAIR_NAME='your_aws_keypair_name'
+export AWS_KEYPAIR_NAME='your_aws_keypair_name'
 ```
 
 *NOTE*: Ensure your `~/.aws/config` region is set to `us-east-1` pending region
