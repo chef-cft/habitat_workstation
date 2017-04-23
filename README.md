@@ -28,7 +28,7 @@ Ubuntu 16.10 | ami-ba4ac7ac | ami-4a84505c
 
 ```
 # The name of the AWS KeyPair to use for deployment
-export $AWS_KEYPAIR_NAME='your_aws_keypair_name'
+export AWS_KEYPAIR_NAME='your_aws_keypair_name'
 ```
 
 ## Build the Amazon Machine Images (AMIs)
