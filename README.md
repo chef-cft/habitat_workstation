@@ -16,19 +16,19 @@ aws_access_key_id = MYKEYID
 aws_secret_access_key = MYACCESSKEY
 ```
 
-Platform     | Hab 0.20.0   | none
+Platform     | Hab 0.21.0   | none
 ----         | ------       | ----
-CentOS 7     | ami-22b03d34 | ami-2846bd3e
-RedHat 7     | ami-884ec39e | ami-55865243
-Ubuntu 14.04 | ami-0f6fe219 | ami-deb54fc8
-Ubuntu 16.04 | ami-9153de87 | ami-7fa85269
-Ubuntu 16.10 | ami-ba4ac7ac | ami-4a84505c
+CentOS 7     | ami-29851c3f | ami-2846bd3e
+RedHat 7     | ami-71b92067 | ami-55865243
+Ubuntu 14.04 | ami-59a43d4f | ami-deb54fc8
+Ubuntu 16.04 | ami-47a53c51 | ami-7fa85269
+Ubuntu 16.10 | ami-41861f57 | ami-4a84505c
 
 ## Pre-requisites
 
 ```
 # The name of the AWS KeyPair to use for deployment
-export $AWS_KEYPAIR_NAME='your_aws_keypair_name'
+export AWS_KEYPAIR_NAME='your_aws_keypair_name'
 ```
 
 ## Build the Amazon Machine Images (AMIs)
