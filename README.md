@@ -16,12 +16,12 @@ aws_access_key_id = MYKEYID
 aws_secret_access_key = MYACCESSKEY
 ```
 
-Platform     | Hab 0.31.0   | none
+Platform     | Hab 0.33.2   | none
 ----         | ------       | ----
-CentOS 7     | ami-2c283157 | ami-9ec2d188
-Ubuntu 16.04 | ami-eb465990 | ami-b9f1e2af
-Ubuntu 16.10 | ami-69485712 | ami-8ef6e598
-Ubuntu 17.04 | ami-f647588d | ami-c7fae9d1
+CentOS 7     | ami-12c13668 | ami-9ec2d188
+Ubuntu 16.04 | ami-c4c037be | ami-b9f1e2af
+Ubuntu 16.10 | ami-f41ee98e | ami-8ef6e598
+Ubuntu 17.04 | ami-3b03f441 | ami-c7fae9d1
 
 ## Pre-requisites
 
