@@ -1,0 +1,22 @@
+Here are the commands to cut-n-paste when verifying a new AMI:
+
+sudo hab sup run
+
+sudo hab sup load learn/national-parks
+
+sudo hab sup unload learn/national-parks
+
+sudo hab sup load learn/national-parks --bind database:mongodb.default
+
+sudo hab sup config learn/mongodb > mongodb.toml
+
+cp new-mongodb-config.toml mongodb.toml
+
+sudo hab config apply --peer 127.0.0.1 mongodb.default 1 mongodb.toml
+
+sudo hab sup unload learn/national-parks
+
+sudo hab sup unload learn/mongodb
+
+sudo hab sup term
+
