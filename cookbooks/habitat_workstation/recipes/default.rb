@@ -103,7 +103,14 @@ cookbook_file '/home/chef/new-mongodb-config.toml' do
 end
 
 cookbook_file '/home/chef/new-plan.sh' do
-  source 'new-mongodb-config.toml'
+  source 'new-plan.sh'
+  owner 'chef'
+  group 'chef'
+  mode '0664'
+end
+
+cookbook_file '/home/chef/new-config.toml' do
+  source 'new-config.toml'
   owner 'chef'
   group 'chef'
   mode '0664'
