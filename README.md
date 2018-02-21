@@ -50,8 +50,6 @@ The version is for display purposes unless set to `none`
 ```
 $ rake list:templates
 centos-7
-rhel-7
-ubuntu-1404
 ubuntu-1604
 ```
 
