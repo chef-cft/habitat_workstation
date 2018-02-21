@@ -16,10 +16,10 @@ aws_access_key_id = MYKEYID
 aws_secret_access_key = MYACCESSKEY
 ```
 
-Platform     | Hab 0.53.0   | none
+Platform     | Hab 0.54.0   | none
 ----         | ------       | ----
-CentOS 7     | ami-bf444dc5 | ami-229fed58
-Ubuntu 16.04 | ami-02414878 | ami-a480f2de
+CentOS 7     | ami-61c5241c | ami-75df3e08
+Ubuntu 16.04 | ami-83f716fe | ami-36dd3c4b
 
 ## Pre-requisites
 
@@ -50,8 +50,6 @@ The version is for display purposes unless set to `none`
 ```
 $ rake list:templates
 centos-7
-rhel-7
-ubuntu-1404
 ubuntu-1604
 ```
 
