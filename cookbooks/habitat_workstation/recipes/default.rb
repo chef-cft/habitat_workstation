@@ -102,4 +102,17 @@ cookbook_file '/home/chef/new-mongodb-config.toml' do
   mode '0664'
 end
 
+cookbook_file '/home/chef/new-plan.sh' do
+  source 'new-mongodb-config.toml'
+  owner 'chef'
+  group 'chef'
+  mode '0664'
+end
+
+git '/home/chef/sample-node-app' do
+  repository 'https://github.com/habitat-sh/sample-node-app.git'
+  revision 'master'
+  action :sync
+end
+
 include_recipe 'habitat_workstation::docker_compose'
