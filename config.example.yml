@@ -3,6 +3,6 @@ contact: Human Chef
 dept: Community Engineering
 project: Habihacks
 region: us-east-1
-sg: sg-a1c3b1db
-subnet: subnet-46b55431
+sg: sg-1d5d606a
+subnet: subnet-942454f0
 type: t2.medium 
