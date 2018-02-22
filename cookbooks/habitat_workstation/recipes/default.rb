@@ -109,17 +109,19 @@ cookbook_file '/home/chef/new-plan.sh' do
   mode '0664'
 end
 
-cookbook_file '/home/chef/new-config.toml' do
-  source 'new-config.toml'
-  owner 'chef'
-  group 'chef'
-  mode '0664'
-end
-
 git '/home/chef/sample-node-app' do
   repository 'https://github.com/habitat-sh/sample-node-app.git'
   revision 'master'
   action :sync
+  user 'chef'
+  group 'chef'
+end
+
+cookbook_file '/home/chef/sample-node-app/new-config.toml' do
+  source 'new-config.toml'
+  owner 'chef'
+  group 'chef'
+  mode '0664'
 end
 
 include_recipe 'habitat_workstation::docker_compose'
