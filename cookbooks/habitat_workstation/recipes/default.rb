@@ -102,19 +102,30 @@ cookbook_file '/home/chef/new-mongodb-config.toml' do
   mode '0664'
 end
 
-cookbook_file '/home/chef/new-plan.sh' do
-  source 'new-plan.sh'
-  owner 'chef'
-  group 'chef'
-  mode '0664'
-end
-
+# TODO:  switch back to habitat-sh/sample-node-app/ once 
+#        PR-14 is merged
+#        https://github.com/habitat-sh/sample-node-app/pull/14
 git '/home/chef/sample-node-app' do
-  repository 'https://github.com/habitat-sh/sample-node-app.git'
-  revision 'master'
+  repository 'https://github.com/nathenharvey/sample-node-app.git'
+  revision 'nathen/configurable-port'
   action :sync
   user 'chef'
   group 'chef'
+end
+
+execute 'copy the plan.sh' do
+  command <<EOF
+    cp /home/chef/sample-node-app/habitat/plan.sh /home/chef/new-plan.sh
+EOF
+  not_if { ::File.exist?('/home/chef/new-plan.sh') }
+end
+
+# the line cookbook provides this resource
+replace_or_add 'update the origin to chef' do
+  path '/home/chef/new-plan.sh'
+  pattern 'pkg_origin=your_origin'
+  line "pkg_origin=chef"
+  replace_only true
 end
 
 cookbook_file '/home/chef/sample-node-app/new-config.toml' do
