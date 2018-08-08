@@ -4,6 +4,8 @@ Cookbooks and Packer config to create a workstation for use during Habitat works
 
 ## Current Amazon Machine Image IDs
 
+Looking for Windows worksations?  Checkout the [Windows Habitat Workstation repo](https://github.com/chef-cft/habitat_windows_workstation/).
+
 AMIs are currently only available in `us-east` region. Make sure you have a keypair setup in that region.
 *NOTE*: Ensure your `~/.aws/config` region is set to `us-east-1` pending region abstraction.
 
