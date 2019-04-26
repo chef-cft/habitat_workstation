@@ -8,3 +8,7 @@
 describe command('hab') do
   it { should exist }
 end
+
+describe command('diff /home/chef/new-plan.sh /home/chef/sample-node-app/habitat/plan.sh') do
+  its(:stdout) { should match /< pkg_origin=chef/ }
+end
