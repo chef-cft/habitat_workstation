@@ -6,10 +6,13 @@ Cookbooks and Packer config to create a workstation for use during Habitat works
 
 Looking for Windows worksations?  Checkout the [Windows Habitat Workstation repo](https://github.com/chef-cft/habitat_windows_workstation/).
 
-AMIs are currently only available in `us-east` region. Make sure you have a keypair setup in that region.
-*NOTE*: Ensure your `~/.aws/config` region is set to `us-east-1` pending region abstraction.
+AMIs can be built in any region as long as you have your keypair setup in that region.
 
-An `~/.aws/config` file might look like:
+Before you begin export AWS_REGION to the region you want to build in:
+
+`$ export AWS_REGION=us-east-1`
+
+Alternatively an `~/.aws/config` file might look like:
 
 ```
 [default]
@@ -18,10 +21,14 @@ aws_access_key_id = MYKEYID
 aws_secret_access_key = MYACCESSKEY
 ```
 
-Platform     | Hab 0.56.0            | none
-----         | ------                | ----
-CentOS 7     | ami-0f36a4015d35d109c | ami-06cb1643574bae9c8
-Ubuntu 16.04 | ami-0216854b2a2ad08e6 | ami-074c27cb2c39554bb
+Platform     | AMI ID                | Hab Version | Region
+----         | ------                | ----        | ----
+CentOS 7     | ami-0ea7e58bedf969904 | none        | us-west-2
+Ubuntu 16.04 | ami-0f4fd8a06b04a50a7 | none        | us-west-2
+CentOS 7     | ami-01330a64affb4a3d2 | 0.79.1      | us-west-2
+Ubuntu 16.04 | ami-0464aa40892739fa7 | 0.79.1      | us-west-2
+CentOS 7     | ami-0ad970b2f97c0180b | 0.79.1      | us-east-1
+Ubuntu 16.04 | ami-075b87293eddaa4d1 | 0.79.1      | us-east-1
 
 ## Pre-requisites
 
@@ -61,6 +68,24 @@ ubuntu-1604
 $ export AMI_ID=the_ami_id_generated_by_packer
 $ rake ami:share
 ```
+
+## Deploy with Terraform
+
+This deploys one or more workstations to AWS based off of variables set in a `terraform.tfvars` file. 
+
+```
+$ cd terraform/aws
+$ cp tfvars.example terraform.tfvars
+```
+
+EDIT: `terraform.tfvars` with values for your environment
+
+```
+$ terraform init
+$ terraform apply
+```
+
+After the `terraform apply` completes you will get an output of IP addresses to connect to. When you are finished with your workshop you can simply run `terraform destroy` from the `terraform/aws` directory.
 
 ## Deploy the CloudFormation stack
 
