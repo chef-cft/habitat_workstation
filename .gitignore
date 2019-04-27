@@ -6,3 +6,6 @@ config.yml
 Gemfile.lock
 logs
 inspec.lock
+.terraform
+*.tfvars
+terraform.tfstate*
