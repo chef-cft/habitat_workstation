@@ -51,12 +51,60 @@ resource "aws_subnet" "habitat_workshop_subnet" {
 ////////////////////////////////
 // Instance Data
 
-data "aws_ami" "centos" {
+data "aws_ami" "centos_nohab" {
   most_recent = true
 
   filter {
     name   = "name"
-    values = ["CentOS 7 - hab*"]
+    values = ["habitat-centos7-workstation-hab-none*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["496323866215"]
+}
+
+data "aws_ami" "centos_hab" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["habitat-centos7-workstation-hab-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["496323866215"]
+}
+
+data "aws_ami" "ubuntu_nohab" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["habitat-ubuntu1604-workstation-hab-none*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["496323866215"]
+}
+
+data "aws_ami" "ubuntu_hab" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["habitat-ubuntu1604-workstation-hab-*"]
   }
 
   filter {
